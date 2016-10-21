@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="application">
+
+<head>
+    <meta charset="UTF-8">
+    <title>AngularJS</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <script type="text/javascript" src="assets/js/angular.min.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div ng-controller="firstController">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                    </tr>
+                </thead>
+                <tbody ng-repeat="(key, value) in dataset">
+                    <tr>
+                        <td>{{ key }}</td>
+                        <td>{{ value.name }}</td>
+                        <td>{{ value.age }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script>
+    var app = angular.module('application', []);
+
+    app.controller("firstController", function firstController($scope) {
+        $scope.dataset = [{
+            name: "name 01",
+            age: 10
+        }, {
+            name: "name 02",
+            age: 20
+        }]
+    });
+    </script>
+</body>
+
+</html>
